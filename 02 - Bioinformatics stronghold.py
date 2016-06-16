@@ -22,3 +22,14 @@ for i in string:
 print freq['A'], freq['C'], freq['G'], freq['U']
 '''
 
+#02 -
+a = ''
+b = ''
+
+for i in range(len(a)):
+    if a[i] == 'T':
+        b += 'U'
+    else:
+        b += a[i]
+
+print (b)
