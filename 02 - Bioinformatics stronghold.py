@@ -33,3 +33,25 @@ for i in range(len(a)):
         b += a[i]
 
 print (b)
+
+
+#03 - 
+
+a = 'ATCG'
+b = len(a) - 1
+print(b)
+c = ''
+
+while b >= 0  :
+    if a[b] == 'T':
+        c += 'A'
+    elif a[b] == 'A':
+        c += 'T'
+    elif a[b] == 'C':
+        c += 'G'
+    elif a[b] == 'G':
+        c += 'C'
+    b = b-1
+
+print(c)
+
