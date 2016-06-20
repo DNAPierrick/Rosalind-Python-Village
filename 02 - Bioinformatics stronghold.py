@@ -54,4 +54,28 @@ while b >= 0  :
     b = b-1
 
 print(c)
+'''
+
+n = 2 # Nb tot generations
+g = 1 # Nb of generation
+j = 1
+k = 3 # Nb of pair per generation
+h = 0 # Nb of previous generation
+while g <= n:
+    if g == 1 :
+        g = g + 1
+        h = 1
+        j = k * h
+        print (g, j, k)
+
+    else:
+        g = g + 1
+        h = j
+        j = j * k
+i = h + j
+print (i)
+
+
+
+
 
