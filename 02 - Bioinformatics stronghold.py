@@ -54,34 +54,25 @@ while b >= 0  :
     b = b-1
 
 print(c)
-'''
 
-numberofmonths = 2 # Nb tot generations
-g = 1 # Nb of generation
-j = 1
-k = 3 # Nb of pair per generation
-h = 0 # Nb of previous generation
-onegen =  1
-twogen = 1
+#04 - Recursive function
 
 def numberabbit (numberofmonths, numberoffspring):
-    while g <= numberofmonths:
-        if g == 1 :
-            g = g + 1
-            h = 1
-            j = k * h
-            print (g, j, k)
+    if numberofmonths == 1 :
+        return 1
 
-        else:
-            numbergen1 = xx
-            numbergen2 = onegen + (numberoffspring * twogen)
-            g = g + 1
-            h = j
-            j = j * k
-    i = h + j
-    print (i)
-numberabbit(2,29)
+    elif numberofmonths == 2:
+        return numberoffspring
 
+    elif numberofmonths <= 4:
+        oneGen = numberabbit(numberofmonths - 1, numberoffspring)
+        twoGen = numberabbit(numberofmonths - 2, numberoffspring)
+        return (oneGen + twoGen)
 
+    else:
+        oneGen = numberabbit(numberofmonths - 1, numberoffspring)
+        twoGen = numberabbit(numberofmonths - 2, numberoffspring)
+        nblap = (oneGen + (twoGen * numberoffspring))
+        return nblap
 
-
+print(numberabbit(29,5))
