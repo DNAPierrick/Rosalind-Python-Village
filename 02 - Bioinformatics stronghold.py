@@ -56,7 +56,7 @@ while b >= 0  :
 print(c)
 
 #04 - Recursive function
-
+#Fibonnaci number on immortal rabbits, 4 offsprings per generation
 def numberabbit (numberofmonths, numberoffspring):
     if numberofmonths == 1 :
         return 1
@@ -76,3 +76,38 @@ def numberabbit (numberofmonths, numberoffspring):
         return nblap
 
 print(numberabbit(29,5))
+
+
+#05 - GC content
+
+'''Calculate the GC content of a fasta file and gives the highest content'''
+import re
+import operator
+filename = 'rosalind_gc.txt'
+content = {}
+
+with open(filename) as test:
+    total = 0
+    totalgc = 0
+    for line in test:
+        line = line.strip("\n")
+
+        #if re.match(r"*Rosalind*", line) == True:
+        if "Rosalind" in line:
+            print("Header found")
+            id = line
+            content[id] = 0
+            totalgc = 0
+            total = 0
+        else:
+            print(line)
+            total += len(line)
+            number = len(re.findall(r"G|C", line))
+            totalgc += number
+
+            content[id] = round(totalgc/(total-13) *100, 6)
+
+print(content)
+
+inverse = [(value, key) for key, value in content.items()]
+print (max(inverse)[1])
